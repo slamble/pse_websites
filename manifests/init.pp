@@ -10,6 +10,11 @@ class websites {
   }
 
   $docroot = '/var/www/vhost'
+  file { $docroot:
+    ensure => directory,
+    owner  => 'www-data',
+    group  => 'www-data',
+  }
   $vhosts = [ 'vhost1', 'vhost2', 'vhost3', 'vhost4', 'vhost5' ]
   $vhosts.each |Integer $index, String $vhost| {
     apache::vhost { $vhost:
