@@ -15,7 +15,7 @@ class websites {
   user { 'www-data':
     ensure => present,
     shell  => '/bin/true',
-    group  => 'www-data',
+    gid    => 'www-data',
   }
   $docroot = '/var/www/vhost'
   file { $docroot:
