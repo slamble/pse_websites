@@ -5,7 +5,7 @@
 # @example
 #   include websites
 class websites (Array $vhosts = [ 'vhost1', 'vhost2', 'vhost3', 'vhost4', 'vhost5'] ) {
-  notify { "Websites coming from the dev branch": }
+  notify { "Websites coming from the test branch": }
   class { 'apache':
     default_vhost => false,
   }
