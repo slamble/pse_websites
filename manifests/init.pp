@@ -4,7 +4,7 @@
 #
 # @example
 #   include websites
-class websites {
+class websites (Array $vhosts = [ 'vhost1', 'vhost2', 'vhost3', 'vhost4', 'vhost5'] ) {
   class { 'apache':
     default_vhost => false,
   }
@@ -23,7 +23,6 @@ class websites {
     owner  => 'www-data',
     group  => 'www-data',
   }
-  $vhosts = [ 'vhost1', 'vhost2', 'vhost3', 'vhost4', 'vhost5' ]
   $vhosts.each |Integer $index, String $vhost| {
     apache::vhost { $vhost:
       port          => 8000 + $index,
